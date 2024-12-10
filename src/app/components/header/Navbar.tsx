@@ -106,7 +106,7 @@ const Navbar = () => {
                 <a
                   href={item.link}
                   onClick={() => handleClick(index)}
-                  className={`hover:text-primary ${
+                  className={`hover:text-primary inline-block w-full ${
                     activeItem === index ? 'text-primary' : ''
                   }`}
                 >
