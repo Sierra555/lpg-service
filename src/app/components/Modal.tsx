@@ -30,7 +30,7 @@ const Modal = ({ label, serviceLabel, ref }: ModalProps) => {
             <DialogHeader>
                 <DialogTitle>Залиште заявку</DialogTitle>
                 <DialogDescription>
-                    Ми зв'яжемося з вами якнайшивдше.
+                    Ми зв&apos;яжемося з вами якнайшивдше.
                 </DialogDescription>
             </DialogHeader>
             <Form service={serviceLabel} setOpen={setOpen} />
