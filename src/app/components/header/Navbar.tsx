@@ -26,7 +26,7 @@ const Navbar = () => {
   };
 
   useClickOutside([dropdownRef, menuRef, modalRef], () => setDropdownOpen(false));
-  useClickOutside([menuRef], () => setMenuOpen(false));
+  useClickOutside([menuRef, modalRef], () => setMenuOpen(false));
 
   const handleClick = (index: number) => {
     setActiveItem(index);

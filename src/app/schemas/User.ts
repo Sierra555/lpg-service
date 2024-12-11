@@ -7,7 +7,7 @@ export const UserSchema = z.object({
         .string()
         .trim()
         .transform((val) => val.replace(/\D/g, ''))
-        .refine((val) => val.length>=9 && val.length <= 12, {
+        .refine((val) => val.startsWith('38') ? val.length === 12 : val.length === 10, {
             message: "Вкажіть правильний номер", 
         }),
     message: z.string().optional(),
