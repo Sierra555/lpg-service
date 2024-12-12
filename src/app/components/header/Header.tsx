@@ -6,8 +6,14 @@ import Logo from '../Logo';
 import { FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { cn } from "@/lib/utils"
 
-const Header = () => {
+type HeaderProps = {
+  className?: string | undefined;
+  isLogoV2?: boolean;
+}
+
+const Header = ({ className, isLogoV2 }: HeaderProps) => {
   const [isOnScroll, setIsOnScroll] = useState<boolean>(false);
 
   useEffect(() => {
@@ -27,14 +33,23 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed w-full border-b-[1px] ${isOnScroll ? 'bg-white md:text-black' : 'bg-transparent'} text-white border-gray z-10 shadow-sm py-4`}>
+    <header className={cn(
+              `fixed 
+              w-full 
+              border-b-[1px] 
+              ${isOnScroll ? 'bg-white md:text-black' : 'bg-transparent'} 
+              text-white 
+              border-gray 
+              z-10 
+              shadow-sm 
+              py-4`, className)}>
         <Container>
             <div className='flex justify-between items-center'>
-                <Logo isOnScroll={isOnScroll}/>
+                <Logo isOnScroll={isOnScroll} isLogoV2={isLogoV2} />
                 <div className="hidden md:flex flex-col gap-5">
                   <div className="flex items-center gap-2">
                     <FaPhoneAlt size={14} />
-                    <a href="tel:+380672324634" className="hover:text-primary transition">+380672324634</a>
+                    <a href="tel:+380672324634" className="hover:text-primary transition">+380935390303</a>
                   </div>
                   <div className="flex items-center gap-2">
                     <FaMapMarkerAlt size={16} />

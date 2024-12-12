@@ -6,6 +6,7 @@ import Logo from './Logo';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { SocialLink, socials } from '../constants';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 const Map = dynamic(() => import('./Map'), { ssr: false });
 
 const Footer = () => {
@@ -47,7 +48,15 @@ const Footer = () => {
                     </Suspense>
                 </div>
             </div>
-            <div className='flex justify-center pt-16'><p className='text-white text-sm'>© 2025 GasMaster. Всі права захищені.</p></div>
+            <div className='flex flex-col justify-center items-center gap-5 pt-16'>
+                <Link 
+                    href='/privacy-policy' 
+                    className='text-white text-sm hover:underline'
+                    aria-label='Перейти до Політики конфіденційності'>
+                        Політика конфіденційності
+                </Link>
+                <p className='text-white text-sm'>© 2025 GasMaster. Всі права захищені.</p>
+            </div>
         </Container>
     </footer>
   );

@@ -25,6 +25,7 @@
     "lucide-react": "^0.464.0",
     "mongodb": "^6.11.0",
     "next": "15.0.3",
+    "next-view-transitions": "^0.3.4",
     "nodemailer": "^6.9.16",
     "prisma": "^6.0.1",
     "react": "^18.3.1",

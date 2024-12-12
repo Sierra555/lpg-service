@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import Header from "./components/header/Header";
 import Footer from "./components/Footer";
+import { ViewTransitions } from 'next-view-transitions';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,14 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk" className="scroll-smooth">
-      <body
-        className={roboto.className }
-      >
-        <Header />
-          {children}
-        <Footer />
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="uk" className="scroll-smooth">
+        <body
+          className={roboto.className }
+        >
+            {children}
+          <Footer />
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

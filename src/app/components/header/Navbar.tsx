@@ -18,7 +18,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
-  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const dropdownRef = useRef<HTMLUListElement | null>(null);
   const modalRef = useRef<HTMLDivElement | null>(null);
 
   const toggleMenu = () => {
@@ -78,7 +78,7 @@ const Navbar = () => {
           {services.map((item: Service, index: number) => (
             <li key={`${index}-${uuidv4()}`} className="relative group mb-2 md:mb-0">
               {item.list ? (
-                <div ref={dropdownRef} key={index}>
+                <div key={index}>
                   <button
                     className={`flex items-center gap-1 hover:text-primary ${
                       activeItem === index ? 'text-primary' : ''
@@ -93,7 +93,7 @@ const Navbar = () => {
                     />
                   </button>
                   {dropdownOpen && (
-                    <ul className="bg-gray-700 text-white mt-2 p-3 rounded shadow-lg space-y-1 md:absolute md:top-10 md:left-0 md:w-[350px]">
+                    <ul ref={dropdownRef} className="bg-gray-700 text-white mt-2 p-3 rounded shadow-lg space-y-1 md:absolute md:top-10 md:left-0 md:w-[350px]">
                       {item.list.map((subItem: string, subIndex: number) => (
                         <li key={`${subIndex}-${uuidv4()}`}>
                           <Modal serviceLabel={subItem} ref={modalRef} />
