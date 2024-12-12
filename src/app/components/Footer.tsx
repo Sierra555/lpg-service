@@ -6,7 +6,7 @@ import Logo from './Logo';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { SocialLink, socials } from '../constants';
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 const Map = dynamic(() => import('./Map'), { ssr: false });
 
 const Footer = () => {
