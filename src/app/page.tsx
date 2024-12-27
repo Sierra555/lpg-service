@@ -4,10 +4,12 @@ import Benefits from "./sections/Benefits";
 import Faq from "./sections/FAQ";
 import Gallery from "./sections/Gallery";
 import Hero from "./sections/Hero";
+import { GasServiceSchema } from "./components/GasServiceSchema"
 
 export default function Home() {
   return (
     <>
+      <GasServiceSchema />
       <Header />
       <main>
         <Hero />

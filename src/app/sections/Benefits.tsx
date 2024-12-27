@@ -6,6 +6,7 @@ import Section from '../components/Section';
 import Heading from '../components/Heding';
 import Image from 'next/image';
 import { v4 as uuidv4 } from 'uuid';
+import { BenefitsSchema } from '../components/GasServiceSchema';
 
 type Benefit = {
   title: string,
@@ -15,6 +16,7 @@ type Benefit = {
 const Benefits = () => {
   return (
     <Section id='benefits'>
+        <BenefitsSchema />
         <Container> 
           <Heading title='Переваги ГБО' subtitle='Вигідно для вас та вашого автомобіля'/>
           <div className="xl:flex xl:justify-between">
