@@ -3,7 +3,7 @@ import Container from '../components/Container';
 
 const Hero = () => {
   return (
-    <section className="bg-cover bg-bottom bg-[url('/images/bg-main.png')] h-screen bg-no-repeat">
+    <section className="bg-cover bg-bottom bg-[url('/images/bg-main.webp')] h-screen bg-no-repeat">
       <Container>
         <div className="pt-[228px]">
           <p className="title text-white before:bg-white">Швидко та якісно</p>

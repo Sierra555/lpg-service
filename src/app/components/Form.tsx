@@ -55,7 +55,7 @@ const UserForm = ({ service, setOpen }: FormProps) => {
   };
 
   return (
-    <div>
+    <>
       <Form {...form}>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <InputWithLabel
@@ -91,7 +91,7 @@ const UserForm = ({ service, setOpen }: FormProps) => {
           <AlertTitle>{message}</AlertTitle>
         </Alert>
       )}
-    </div>
+    </>
   );
 };
 

@@ -12,7 +12,7 @@ type ModalProps = {
 }
 
 const Modal = ({ label, serviceLabel, ref }: ModalProps) => {
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
