@@ -26,7 +26,7 @@ const Footer = () => {
                     </div>
                     <div className="flex items-center gap-2">
                         <FaMapMarkerAlt size={16} />
-                        <p>м. Львів вул. Народна, 7</p>
+                        <p>м. Львів вул. Народна, 19</p>
                     </div>
                     <div>
                     <p className='pb-2'>Ми у соцмережах:</p>

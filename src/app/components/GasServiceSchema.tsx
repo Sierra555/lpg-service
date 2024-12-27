@@ -22,7 +22,7 @@ export const GasServiceSchema = () => {
     ],
     address: {
       "@type": "PostalAddress",
-      streetAddress: "вул. Народна, 7",
+      streetAddress: "вул. Народна, 19",
       addressLocality: "Львів",
       postalCode: "79000",
       addressCountry: "UA",
