@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import { ViewTransitions } from 'next-view-transitions';
 
 export const metadata: Metadata = {
-  title: "ГБО • Встановлення газового обладнання на авто у Львові",
+  title: "ГБО | Встановлення газового обладнання на авто у Львові",
   description: "Професійне встановлення газового обладнання для авто. Якісно, швидко, надійно.",
   keywords: [
     "газове обладнання",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "ціни на ГБО"
   ],
   openGraph: {
-    title: "ГБО • Встановлення газового обладнання на авто у Львові",
+    title: "ГБО | Встановлення газового обладнання на авто у Львові",
     description: "Професійне встановлення газового обладнання для авто. Якісно, швидко, надійно.",
     url: "https://gas-master.vercel.app/",
     siteName: "ГБО Львів",

@@ -1,55 +1,14 @@
 'use client';
 
-import Leaflet from 'leaflet';
-import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import { useEffect, useMemo } from 'react';
-
-type DynamicMapProps = {
-  center?: number[];
-};
-
-//@ts-ignore
-delete Leaflet.Icon.Default.prototype._getIconUrl;
-Leaflet.Icon.Default.mergeOptions({
-  iconUrl: '/images/leaflet/marker-icon.png',
-  iconRetinaUrl: '/images/leaflet/marker-icon-2x.png',
-  shadowUrl: '/images/leaflet/marker-shadow.png',
-});
-
-const MapUpdater = ({ center }: { center: number[] }) => {
-  const map = useMap();
-
-  useEffect(() => {
-    if (center) {
-      map.setView(center as Leaflet.LatLngExpression, 15);
-    }
-  }, [center, map]);
-
-  return null;
-};
-
-const Map = ({ center }: DynamicMapProps) => {
-  const mapCenter = useMemo(() => center || [49.8383,  24.0230], [center]);
-
+const Map = () => {
   return (
     <div className="h-[35vh] rounded-lg overflow-hidden">
-      <MapContainer
-        center={mapCenter as Leaflet.LatLngExpression}
-        zoom={2}
-        scrollWheelZoom={false}
-        className="h-full w-full"
-      >
-        <TileLayer 
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        {center && (
-          <>
-            <MapUpdater center={mapCenter as number[]} />
-            <Marker position={mapCenter as Leaflet.LatLngExpression} />
-          </>
-        )}
-      </MapContainer>
+     <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d811.0465201223091!2d23.984501999740708!3d49.83132510169829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae77d321f9311%3A0x1646bf59618a0ef2!2z0J3QsNGA0L7QtNC90LAsINCy0YPQu9C40YbRjyDQndCw0YDQvtC00L3QsCwgMTksINCb0YzQstGW0LIsINCb0YzQstGW0LLRgdGM0LrQsCDQvtCx0LvQsNGB0YLRjCwgNzkwMDA!5e0!3m2!1suk!2sua!4v1735316439769!5m2!1suk!2sua"      width="600" 
+      height="450"
+      style={{ border: 0 }}
+      loading="lazy" 
+      referrerPolicy="no-referrer-when-downgrade"></iframe>
     </div>
   );
 };

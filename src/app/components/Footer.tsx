@@ -44,7 +44,7 @@ const Footer = () => {
                 </div>
                 <div className="relative w-full md:w-[500px] h-full">
                     <Suspense fallback={<div>Loading map...</div>}>
-                        <Map center={[49.831588841979254, 23.984998059769815]}/>
+                        <Map />
                     </Suspense>
                 </div>
             </div>
