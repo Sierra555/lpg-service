@@ -75,7 +75,7 @@ export const BenefitsSchema = () => {
     "@type": "HowTo",
     name: "Переваги використання ГБО",
     step: benefits.map((benefit) => ({
-      "@type": "HowToStep",
+      "@type": "HowTo",
       name: benefit.title,
       text: benefit.description,
     })),
