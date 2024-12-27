@@ -54,7 +54,7 @@ const Header = ({ className, isLogoV2 }: HeaderProps) => {
                   <div className="flex items-center gap-2">
                     <FaMapMarkerAlt size={16} />
                     <Link href='/#footer'>
-                      <p className='underline underline-offset-4 hover:text-primary transition'>м. Львів вул. Народна, 7</p>
+                      <p className='underline underline-offset-4 hover:text-primary transition'>м. Львів вул. Народна, 19</p>
                     </Link>
                   </div>
                 </div>
