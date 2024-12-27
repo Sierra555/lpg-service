@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { Button } from './ui/button';
-import Form from './Form';
+import UserForm from './Form';
 
 type ModalProps = {
     label?: string;
@@ -12,7 +12,7 @@ type ModalProps = {
 }
 
 const Modal = ({ label, serviceLabel, ref }: ModalProps) => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -33,7 +33,7 @@ const Modal = ({ label, serviceLabel, ref }: ModalProps) => {
                     Ми зв&apos;яжемося з вами якнайшивдше.
                 </DialogDescription>
             </DialogHeader>
-            <Form service={serviceLabel} setOpen={setOpen} />
+            <UserForm service={serviceLabel} setOpen={setOpen} />
         </DialogContent>
     </Dialog>
   );

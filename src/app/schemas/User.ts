@@ -13,4 +13,4 @@ export const UserSchema = z.object({
     message: z.string().optional(),
 });
 
-export type UserType = z.infer<typeof UserSchema>;
+export type UserSchemaType = z.infer<typeof UserSchema>;

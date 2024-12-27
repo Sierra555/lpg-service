@@ -36,7 +36,7 @@ const UserForm = ({ service, setOpen }: FormProps) => {
     },
   });
 
-  const { handleSubmit, control, formState: { errors } } = form;
+  const { handleSubmit, control } = form;
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
@@ -62,20 +62,17 @@ const UserForm = ({ service, setOpen }: FormProps) => {
             fieldTitle="Послуга"
             nameInSchema="service"
             control={control}
-            errors={errors}
             tabIndex={service ? -1 : 0}
           />
           <InputWithLabel
             fieldTitle="Ваше ім'я"
             nameInSchema="name"
             control={control}
-            errors={errors}
           />
           <InputWithLabel
             fieldTitle="Номер телефону"
             nameInSchema="tel"
             control={control}
-            errors={errors}
             inputMode='tel'
           />
           <InputWithLabel
@@ -83,7 +80,6 @@ const UserForm = ({ service, setOpen }: FormProps) => {
             nameInSchema="message"
             textArea
             control={control}
-            errors={errors}
           />
           <div className="flex justify-end">
           <Button disabled={isLoading} className='text-white w-full md:w-auto'>Залишити заявку</Button>

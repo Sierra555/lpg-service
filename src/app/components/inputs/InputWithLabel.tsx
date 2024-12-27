@@ -1,5 +1,5 @@
 import React from 'react';
-import { FieldValues, FieldErrors, Control } from 'react-hook-form';
+import { FieldValues, Control } from 'react-hook-form';
 import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '../ui/form';
 import { Input } from "@/app/components/ui/input";
 import { Textarea } from '../ui/textarea';
@@ -8,7 +8,6 @@ type InputWithLabelProps = {
     fieldTitle: string;
     nameInSchema: string;
     textArea?: boolean;
-    errors: FieldErrors<FieldValues>;
     control: Control<FieldValues>;
     tabIndex?: number | undefined;
     inputMode?: any;
@@ -19,7 +18,6 @@ const InputWithLabel = ({
   fieldTitle, 
   nameInSchema, 
   textArea, 
-  errors, 
   control, 
   tabIndex, 
   inputMode, 
@@ -43,7 +41,7 @@ const InputWithLabel = ({
                 />
             }
         </FormControl>
-      <FormMessage>{errors[nameInSchema]?.message as string }</FormMessage>
+      <FormMessage />
     </FormItem>
    )}
   />

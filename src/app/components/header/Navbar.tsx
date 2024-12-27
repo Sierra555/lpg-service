@@ -6,6 +6,7 @@ import { FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
 import { v4 as uuidv4 } from 'uuid';
 import Modal from '../Modal';
 import useClickOutside from '@/app/hooks/useClickOutside';
+import { Link } from 'next-view-transitions';
 
 type Service = {
   title: string;
@@ -103,15 +104,15 @@ const Navbar = () => {
                   )}
                 </div>
               ) : (
-                <a
-                  href={item.link}
+                <Link
+                  href={item.link as string}
                   onClick={() => handleClick(index)}
                   className={`hover:text-primary inline-block w-full ${
                     activeItem === index ? 'text-primary' : ''
                   }`}
                 >
                   {item.title}
-                </a>
+                </Link>
               )}
             </li>
           ))}
