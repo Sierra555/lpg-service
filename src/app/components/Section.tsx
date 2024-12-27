@@ -12,7 +12,7 @@ type SectionProps = {
 const Section = ({ id, children } : SectionProps) => {
   return (
     <motion.section 
-      className="pb-[80px] pt-[40px] md:pb-[150px] md:pt-[100px] bg-cover bg-center bg-no-repeat" aria-label={id} id={id}
+      className="pb-[80px] pt-[40px] md:pb-[150px] md:pt-[100px]" aria-label={id} id={id}
       variants={staggerContainer({ staggerChildren: 0.1, delayChildren: 0.2 }) }
       initial='hidden'
       whileInView='show'

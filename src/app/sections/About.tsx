@@ -11,7 +11,7 @@ const About = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <div className="bg-no-repeat bg-center bg-cover bg-[url('/images/injectors.webp')] ">
+    <div className="bg-no-repeat bg-center bg-cover bg-[url('/images/injectors.webp')] bg-secondary">
         <Section id='about-us'>
                 <Container>
                     <Heading title='Про нас' subtitle='Точність та гарантія' v2={true} />
