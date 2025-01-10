@@ -21,10 +21,10 @@ export const services = [
         title: 'Про нас',
         link: '/#about-us'
     },
-    {
-        title: 'Ціни',
-        link: '/#prices'
-    },
+    // {
+    //     title: 'Ціни',
+    //     link: '/#prices'
+    // },
     {
         title: 'FAQ',
         link: '/#faq'
