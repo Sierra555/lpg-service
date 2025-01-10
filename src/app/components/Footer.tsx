@@ -29,21 +29,21 @@ const Footer = () => {
                         <p>м. Львів вул. Народна, 19</p>
                     </div>
                     <div>
-                    <p className='pb-2'>Ми у соцмережах:</p>
-                    <hr />
-                    <ul className='pt-2 flex gap-2 justify-center items-center'>
-                        {socials.map(({link, label, icon: Icon} : SocialLink) => (
-                            <li key={label}>
-                                <a href={link} aria-label={label}>
-                                    <Icon size={30} color="white" />
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                        <p className='pb-2'>Ми у соцмережах:</p>
+                        <hr />
+                        <ul className='pt-2 flex gap-2 justify-center items-center'>
+                            {socials.map(({link, label, icon: Icon} : SocialLink) => (
+                                <li key={label}>
+                                    <a href={link} aria-label={label}>
+                                        <Icon size={30} color="white" />
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
                 <div className="relative w-full md:w-[500px] h-full">
-                    <Suspense fallback={<div>Loading map...</div>}>
+                    <Suspense fallback={<p className='text-white'>Loading map...</p>}>
                         <Map />
                     </Suspense>
                 </div>

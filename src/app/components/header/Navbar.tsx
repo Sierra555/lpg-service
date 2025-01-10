@@ -7,6 +7,8 @@ import { v4 as uuidv4 } from 'uuid';
 import Modal from '../Modal';
 import useClickOutside from '@/app/hooks/useClickOutside';
 import { Link } from 'next-view-transitions';
+import UserForm from '../Form';
+import { Button } from '../ui/button';
 
 type Service = {
   title: string;
@@ -21,7 +23,6 @@ const Navbar = () => {
   const menuRef = useRef<HTMLDivElement | null>(null);
   const dropdownRef = useRef<HTMLUListElement | null>(null);
   const modalRef = useRef<HTMLDivElement | null>(null);
-
   const toggleMenu = () => {
     setMenuOpen(prev => !prev);
   };
@@ -97,7 +98,13 @@ const Navbar = () => {
                     <ul ref={dropdownRef} className="bg-gray-700 text-white mt-2 p-3 rounded shadow-lg space-y-1 md:absolute md:top-10 md:left-0 md:w-[350px]">
                       {item.list.map((subItem: string, subIndex: number) => (
                         <li key={`${subIndex}-${uuidv4()}`}>
-                          <Modal serviceLabel={subItem} ref={modalRef} />
+                          <Modal 
+                            title='Залиште заявку' 
+                            description='Ми зв&apos;яжемося з вами якнайшивдше.' 
+                            trigger={<p className="hover:text-primary cursor-pointer transition">{subItem}</p>}
+                            content={<UserForm service={subItem} />}
+                            ref={modalRef}
+                           />
                         </li>
                       ))}
                     </ul>
@@ -117,7 +124,13 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <Modal label="Записатися" />
+        <Modal 
+          title='Залиште заявку' 
+          description='Ми зв&apos;яжемося з вами якнайшивдше.' 
+          trigger={<Button type='button' className='text-white w-full md:w-auto'>Записатися</Button>}
+          content={<UserForm />}
+          ref={modalRef}
+         />
       </div>
     </nav>
   );

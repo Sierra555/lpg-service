@@ -10,20 +10,20 @@ import { useRouter } from "next/navigation";
 import { Alert, AlertTitle } from "@/app/components/ui/alert";
 import axios from 'axios';
 import InputWithLabel from "@/app/components/inputs/InputWithLabel";
+import { ClipLoader } from 'react-spinners';
 
 type FormProps = {
   service?: string;
-  setOpen: (value: boolean) => void;
 };
 
-const wait = () => new Promise((resolve) => setTimeout(resolve, 1000));
+const wait = () => new Promise((resolve) => setTimeout(resolve, 2000));
 
-const UserForm = ({ service, setOpen }: FormProps) => {
+const UserForm = ({ service }: FormProps) => {
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-
   const router = useRouter();
+  const Spinner = () => <ClipLoader color="#fff" size={16} />;
 
   const form = useForm<FieldValues>({
     mode: 'onBlur',
@@ -43,8 +43,7 @@ const UserForm = ({ service, setOpen }: FormProps) => {
     try {
       await axios.post('/api/appointments', data);
       setMessage('Дякую! Ми вам зателефонуємо.');
-      wait().then(() => setOpen(false));
-      router.push('/');
+      wait().then(() => router.refresh());
     } catch (error: any) {
       setIsError(true);
       setMessage(`Щось пішло не так: ${error.message || error}`);
@@ -82,7 +81,7 @@ const UserForm = ({ service, setOpen }: FormProps) => {
             control={control}
           />
           <div className="flex justify-end">
-          <Button disabled={isLoading} className='text-white w-full md:w-auto'>Залишити заявку</Button>
+          <Button disabled={isLoading} className='text-white w-full md:w-[150px] '>{isLoading ? <Spinner /> : 'Залишити заявку'}</Button>
           </div>
         </form>
       </Form>

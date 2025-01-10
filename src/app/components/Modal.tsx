@@ -1,39 +1,31 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
-import { Button } from './ui/button';
-import UserForm from './Form';
 
 type ModalProps = {
-    label?: string;
-    serviceLabel?: string | undefined;
+    trigger: React.ReactNode;
+    title?: string;
+    description?: string;
+    content: React.ReactNode;
     ref?: React.RefObject<HTMLDivElement> | undefined;
+    className?: string;
 }
 
-const Modal = ({ label, serviceLabel, ref }: ModalProps) => {
-  const [open, setOpen] = useState(false);
-
+const Modal = ({ trigger, title, description, content, ref, className }: ModalProps) => {
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>   
-            {   serviceLabel ? 
-                (<p 
-                    className="hover:text-primary cursor-pointer transition"
-                >
-                    {serviceLabel}
-                </p>) :
-                (<Button className='text-white w-full md:w-auto'>{label}</Button>)
-            }
+    <Dialog >
+        <DialogTrigger asChild>
+            {trigger}
         </DialogTrigger>
-        <DialogContent ref={ref}>
+        <DialogContent ref={ref} className={className}>
             <DialogHeader>
-                <DialogTitle>Залиште заявку</DialogTitle>
+                <DialogTitle>{title}</DialogTitle>
                 <DialogDescription>
-                    Ми зв&apos;яжемося з вами якнайшивдше.
+                    {description}
                 </DialogDescription>
             </DialogHeader>
-            <UserForm service={serviceLabel} setOpen={setOpen} />
+            {content}
         </DialogContent>
     </Dialog>
   );

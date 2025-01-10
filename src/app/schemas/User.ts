@@ -5,8 +5,7 @@ export const UserSchema = z.object({
     name: z.string().optional(),
     tel: z
         .string()
-        .trim()
-        .transform((val) => val.replace(/\D/g, ''))
+        .transform((val) => val.replace(/\D/g, '').trim())
         .refine((val) => val.startsWith('38') ? val.length === 12 : val.length === 10, {
             message: "Вкажіть правильний номер", 
         }),

@@ -1,11 +1,56 @@
-'use-server';
+import 'server-only';
 
+import arcjet, { detectBot, shield, tokenBucket } from "@arcjet/next";
 import { NextResponse } from "next/server";
 import prisma from "@/app/libs/prismadb";
 import nodemailer from "nodemailer";
 import { UserSchema } from "@/app/schemas/User";
 
+const aj = arcjet({
+    key: process.env.ARCJET_KEY!,
+    characteristics: ["ip.src"],
+    rules: [
+        shield({ mode: "LIVE" }),
+        detectBot({
+          mode: "LIVE",
+          allow: [
+            "CATEGORY:SEARCH_ENGINE", // Google, Bing, etc
+            "CATEGORY:MONITOR", // Uptime monitoring services
+            "CATEGORY:PREVIEW", // Link previews e.g. Slack, Discord
+          ],
+        }),
+        tokenBucket({
+          mode: "LIVE",
+          refillRate: 5,
+          interval: 10,
+          capacity: 10,
+        }),
+      ],
+})
+
 export async function POST(request: Request) {
+    const decision = await aj.protect(request, { requested: 5 });
+    console.log("Arcjet decision", decision);
+  
+    if (decision.isDenied()) {
+      if (decision.reason.isRateLimit()) {
+        return NextResponse.json(
+          { error: "Too Many Requests", reason: decision.reason },
+          { status: 429 },
+        );
+      } else if (decision.reason.isBot()) {
+        return NextResponse.json(
+          { error: "No bots allowed", reason: decision.reason },
+          { status: 403 },
+        );
+      } else {
+        return NextResponse.json(
+          { error: "Forbidden", reason: decision.reason },
+          { status: 403 },
+        );
+      }
+    }
+
     try {
         const data = await request.json();
         const parsed = UserSchema.safeParse(data);

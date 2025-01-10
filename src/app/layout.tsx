@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/Footer";
 import { ViewTransitions } from 'next-view-transitions';
+import CookieBanner from "./components/CookiesBanner";
 
 export const metadata: Metadata = {
   title: "ГБО | Встановлення газового обладнання на авто у Львові",
@@ -50,6 +51,7 @@ export default function RootLayout({
         <body
           className={roboto.className }
         >
+           <CookieBanner />
             {children}
           <Footer />
         </body>

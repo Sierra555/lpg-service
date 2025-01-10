@@ -120,21 +120,50 @@ export const faqData = [
     }
   ];
 
-  export type SocialLink = {
-    label: string;
-    link: string;
-    icon: IconType; 
-  };
-  
-  export const socials: SocialLink[] = [
-    {
-      label: 'Instagram',
-      link: '#',
-      icon: FaInstagram,
-    },
-    {
-      label: 'Facebook',
-      link: '#',
-      icon: FaFacebook,
-    },
-  ];
+export type SocialLink = {
+  label: string;
+  link: string;
+  icon: IconType; 
+};
+
+export const socials: SocialLink[] = [
+  {
+    label: 'Instagram',
+    link: '#',
+    icon: FaInstagram,
+  },
+  {
+    label: 'Facebook',
+    link: '#',
+    icon: FaFacebook,
+  },
+];
+
+export type CookieConfig = {
+  title: string;
+  descr: string;
+  id: 'general' | 'marketing' | 'functional' | 'analytics';
+};
+
+export const cookiesConfig: CookieConfig[] = [
+  {
+    title: 'Основні файли cookie',
+    descr: 'Ці cookie забезпечують критично важливі функції, такі як безпека, автентифікація та керування мережею. Ці cookie не можна вимкнути.',
+    id: 'general',
+  },
+  {
+    title: 'Маркетингові файли cookie',
+    descr: 'Використовуються для аналізу ефективності реклами та показу релевантних оголошень і послуг, що відповідають вашим інтересам.',
+    id: 'marketing',
+  },
+  {
+    title: 'Функціональні файли cookie',
+    descr: 'Збирають інформацію про ваші налаштування, щоб покращити функціональність сайту та забезпечити більш персоналізований досвід.',
+    id: 'functional',
+  },
+  {
+    title: 'Аналітичні файли cookie',
+    descr: 'Допомагають аналізувати, як користувачі взаємодіють із сайтом, виявляти помилки та оптимізувати роботу платформи на основі даних.',
+    id: 'analytics',
+  },
+]
