@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import { ViewTransitions } from 'next-view-transitions';
 import CookieBanner from "./components/CookiesBanner";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "ГБО | Встановлення газового обладнання на авто у Львові",
@@ -55,6 +56,23 @@ export default function RootLayout({
             {children}
           <Footer />
         </body>
+        {/* Google tag (gtag.js) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16845422778"
+        />
+        <Script
+          id="google-ads"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-16845422778');
+            `,
+          }}
+        />
       </html>
     </ViewTransitions>
   );

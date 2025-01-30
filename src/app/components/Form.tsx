@@ -31,7 +31,7 @@ const UserForm = ({ service }: FormProps) => {
     defaultValues: {
       service: service || '',
       name: '',
-      tel: '+380',
+      tel: '+38',
       message: '',
     },
   });
