@@ -49,14 +49,8 @@ export default function RootLayout({
   return (
     <ViewTransitions>
       <html lang="uk" className="scroll-smooth">
-        <body
-          className={roboto.className }
-        >
-           <CookieBanner />
-            {children}
-          <Footer />
-        </body>
-        {/* Google tag (gtag.js) */}
+      <head>
+        {/* Google Tag (gtag.js) */}
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-16845422778"
@@ -73,6 +67,14 @@ export default function RootLayout({
             `,
           }}
         />
+      </head>
+        <body
+          className={roboto.className }
+        >
+           <CookieBanner />
+            {children}
+          <Footer />
+        </body>
       </html>
     </ViewTransitions>
   );
