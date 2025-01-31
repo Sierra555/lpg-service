@@ -11,6 +11,7 @@ import { Alert, AlertTitle } from "@/app/components/ui/alert";
 import axios from 'axios';
 import InputWithLabel from "@/app/components/inputs/InputWithLabel";
 import { ClipLoader } from 'react-spinners';
+import { gtag_report_conversion } from '../utils'; 
 
 type FormProps = {
   service?: string;
@@ -44,6 +45,7 @@ const UserForm = ({ service }: FormProps) => {
       await axios.post('/api/appointments', data);
       setMessage('Дякую! Ми вам зателефонуємо.');
       wait().then(() => router.refresh());
+      gtag_report_conversion();
     } catch (error: any) {
       setIsError(true);
       setMessage(`Щось пішло не так: ${error.message || error}`);

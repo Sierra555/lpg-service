@@ -7,6 +7,7 @@ import { FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { cn } from "@/lib/utils"
+import { gtag_report_conversion } from '@/app/utils';
 
 type HeaderProps = {
   className?: string | undefined;
@@ -32,6 +33,11 @@ const Header = ({ className, isLogoV2 }: HeaderProps) => {
     };
   }, []);
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    gtag_report_conversion();
+};
+
   return (
     <header className={cn(
               `fixed 
@@ -49,7 +55,7 @@ const Header = ({ className, isLogoV2 }: HeaderProps) => {
                 <div className="hidden md:flex flex-col gap-5">
                   <div className="flex items-center gap-2">
                     <FaPhoneAlt size={14} />
-                    <a href="tel:+380672324634" className="hover:text-primary transition">+380935390303</a>
+                    <a href="tel:+380672324634" className="hover:text-primary transition" onClick={handleClick}>+380935390303</a>
                   </div>
                   <div className="flex items-center gap-2">
                     <FaMapMarkerAlt size={16} />

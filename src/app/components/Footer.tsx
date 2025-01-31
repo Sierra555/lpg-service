@@ -7,9 +7,16 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { SocialLink, socials } from '../constants';
 import dynamic from 'next/dynamic';
 import { Link } from 'next-view-transitions';
+import { gtag_report_conversion } from '../utils';
+
 const Map = dynamic(() => import('./Map'), { ssr: false });
 
 const Footer = () => {
+    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        gtag_report_conversion();
+    };
+    
   return (
     <footer className='bg-secondary pb-[60px] pt-[40px] md:pb-[100px] md:pt-[100px]' id='footer'>
         <Container>
@@ -22,7 +29,7 @@ const Footer = () => {
                     </div>
                     <div className="flex items-center gap-2">
                         <FaPhoneAlt size={14} />
-                        <a href="tel:+380672324634" className="hover:text-primary">+380672324634</a>
+                        <a href="tel:+380672324634" className="hover:text-primary" onClick={handleClick}>+380672324634</a>
                     </div>
                     <div className="flex items-center gap-2">
                         <FaMapMarkerAlt size={16} />
