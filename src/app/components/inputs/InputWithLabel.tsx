@@ -10,7 +10,7 @@ type InputWithLabelProps = {
     textArea?: boolean;
     control: Control<FieldValues>;
     tabIndex?: number | undefined;
-    inputMode?: any;
+    inputMode?: 'tel' | undefined ;
     placeholder?: string;
 }
 
